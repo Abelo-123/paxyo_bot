@@ -27,7 +27,7 @@ app.post(`/webhook/${BOT_TOKEN}`, (req, res) => {
 
 // Define a simple bot command
 bot.onText(/\/start/, (msg) => {
-    bot.sendMessage(msg.chat.id, "Hello! Your bot is up and running on Vercel!");
+    bot.sendMessage(msg.chat.id, "Hello!  bot is up and running on Vercel!");
 });
 
 // Start the express server
