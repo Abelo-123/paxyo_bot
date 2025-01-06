@@ -4,7 +4,7 @@ const express = require("express");
 const TelegramBot = require("node-telegram-bot-api");
 
 const app = express();
-app.use(express.json());
+app.use(express.json());  // Built-in express middleware to parse JSON
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const URL = process.env.URL;
@@ -19,15 +19,10 @@ const bot = new TelegramBot(BOT_TOKEN);
 // Set the webhook
 bot.setWebHook(`${URL}webhook/${BOT_TOKEN}`);
 
-app.use((req, next) => {
-    console.log(req.method, req.url); // Log the incoming requests
-    next();
-});
-
 // Webhook endpoint
-app.post('/webhook/7990081216:AAHf1Dot1EzlK647H0f5GKUco-c9UGlpMIc', (req, res) => {
-    bot.processUpdate(req.body);
-    res.sendStatus(200);
+app.post(`/webhook/${BOT_TOKEN}`, (req, res) => {
+    bot.processUpdate(req.body); // Process incoming updates
+    res.sendStatus(200);  // Respond with HTTP 200 to indicate success
 });
 
 // Define a simple bot command
@@ -40,7 +35,7 @@ bot.onText(/\/start/, (msg) => {
     // Send an image with a caption and an inline keyboard
     bot.sendPhoto(
         chatId,
-        'https://paxyo.com/photo_2025-01-06_13-40-19.jpg', // Path to the local image file
+        'https://paxyo.com/photo_2025-01-06_13-40-19.jpg', // Path to the image URL
         {
             caption: `What does this bot do?\n\nNeed to grow your social media? This tool helps you get instant followers, views, likes, and many more on major platforms. Paxyo: It’s fast, affordable, and comes with reliable customer support to help you every step of the way.`,
             reply_markup: {
@@ -58,7 +53,6 @@ bot.onText(/\/start/, (msg) => {
         console.error('Error sending photo:', err);
     });
 });
-
 
 // Start the express server
 const PORT = process.env.PORT || 3000;
