@@ -19,9 +19,14 @@ const bot = new TelegramBot(BOT_TOKEN);
 // Set the webhook
 bot.setWebHook(`${URL}webhook/${BOT_TOKEN}`);
 
+app.use((req, next) => {
+    console.log(req.method, req.url); // Log the incoming requests
+    next();
+});
+
 // Webhook endpoint
-app.post(`/webhook/${BOT_TOKEN}`, (req, res) => {
-    bot.processUpdate(req.body); // Process incoming updates
+app.post('/webhook/7990081216:AAHf1Dot1EzlK647H0f5GKUco-c9UGlpMIc', (req, res) => {
+    bot.processUpdate(req.body);
     res.sendStatus(200);
 });
 
