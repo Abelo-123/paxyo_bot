@@ -35,7 +35,7 @@ bot.onText(/\/start/, (msg) => {
     // Send an image with a caption and an inline keyboard
     bot.sendPhoto(
         chatId,
-        'https://img.freepik.com/free-photo/silver-cat-green-grasses_198169-16.jpg', // Path to the local image file
+        'https://paxyo.com/photo_2025-01-06_13-40-19.jpg', // Path to the local image file
         {
             caption: `What does this bot do?\n\nNeed to grow your social media? This tool helps you get instant followers, views, likes, and many more on major platforms. Paxyo: It’s fast, affordable, and comes with reliable customer support to help you every step of the way.`,
             reply_markup: {
