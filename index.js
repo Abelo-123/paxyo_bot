@@ -17,7 +17,7 @@ if (!BOT_TOKEN || !URL) {
 const bot = new TelegramBot(BOT_TOKEN);
 
 // Set the webhook
-bot.setWebHook(`${URL}/webhook/${BOT_TOKEN}`);
+bot.setWebHook(`${URL}webhook/${BOT_TOKEN}`);
 
 // Webhook endpoint
 app.post(`/webhook/${BOT_TOKEN}`, (req, res) => {
