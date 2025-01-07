@@ -3,6 +3,7 @@ node_modules/
 
 # Environment variables
 .env
+vercel.json
 
 # Logs
 npm-debug.log
