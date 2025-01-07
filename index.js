@@ -30,7 +30,7 @@ bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
 
     // Send a welcome message
-    bot.sendMessage(chatId, `🚀 Welcome to Paxyo!`);
+    bot.sendMessage(chatId, `🚀 Welcome !`);
 
     // Send an image with a caption and an inline keyboard
     bot.sendPhoto(
